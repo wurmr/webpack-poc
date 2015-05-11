@@ -6,7 +6,7 @@
   "scripts": {
     "first-run": "npm i webpack-dev-server -g && npm i",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --progress --colors"
+    "dev": "webpack-dev-server --progress --colors -d"
   },
   "keywords": [],
   "author": "Jim Karg",
