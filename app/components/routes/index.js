@@ -1,16 +1,18 @@
 'use strict';
 
-module.exports = ['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
+var routes = ['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
 	$locationProvider.html5Mode({
 		enabled: false
 	});
-	
+
 	$stateProvider.state('home', {
 		url: '/',
-		controller: require('../../features/home/home.controller'),
+		controller: 'HomeController',
 		controllerAs: 'vm',
-		template: '<div>Hello {{vm.name}}</div>'
+		template: require('../../features/home/home.tpl.html')
 	});
 	
 	$urlRouterProvider.otherwise('/');
 }];
+
+module.exports = routes;

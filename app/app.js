@@ -2,11 +2,14 @@
 
 var angular = require('angular');
 
-var app = angular.module('app', [require('angular-ui-router')]);
+var requires = [
+	require('angular-ui-router'),
+	require('./features/home').name
+]
+
+var app = angular.module('app', requires);
 
 var routes = require('./components/routes');
-
-require('./features/home');
 
 app.config(routes);
 
