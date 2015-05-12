@@ -1,6 +1,7 @@
 'use strict';
 
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -8,8 +9,9 @@ module.exports = {
         vendor: ['angular']
     },
     output: {
-        path: __dirname,
-        filename: "bundle.js"
+        path: __dirname + "/wwwroot",
+        filename: "bundle.js",
+        chunkFilename: "[id].[hash].bundle.js"
     },
     module: {
         preLoaders: [
@@ -26,6 +28,14 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        //new webpack.optimize.DedupePlugin(),
+        //new webpack.optimize.UglifyJsPlugin(),        
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            template: "app/index.html"
+        })
+    ],
     'html-minify-loader': {
         empty: true
     }
